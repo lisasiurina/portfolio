@@ -9768,24 +9768,7 @@ html {
   max-width: 30rem;
 }
 
-footer.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-footer.footer .social-link {
-  display: block;
-  height: 4rem;
-  width: 4rem;
-  line-height: 4.3rem;
-  font-size: 1.5rem;
-  background-color: #1D809F;
-  transition: background-color 0.15s ease-in-out;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-}
-footer.footer .social-link:hover {
-  background-color: #155d74;
-  text-decoration: none;
-}
+
 
 .map {
   height: 30rem;
@@ -19719,18 +19702,7 @@ form .form-group:first-child .floating-label-form-group {
   border-top: 1px solid #dee2e6;
 }
 
-footer {
-  padding: 50px 0 65px;
-}
-footer .list-inline {
-  margin: 0;
-  padding: 0;
-}
-footer .copyright {
-  font-size: 14px;
-  margin-bottom: 0;
-  text-align: center;
-}
+
 
 header.masthead {
   margin-bottom: 50px;
@@ -30549,12 +30521,7 @@ html {
   }
 }
 
-.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: #2c3e50;
-  color: #fff;
-}
+
 
 .copyright {
   background-color: #1a252f;
