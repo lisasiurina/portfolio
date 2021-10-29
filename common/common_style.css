@@ -1,0 +1,166 @@
+﻿@font-face
+{
+font-family: "ArchivoBlackR";
+src: url("../fonts/ArchivoBlack-Regular.ttf") format("truetype");
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'BebasRegular';
+    src: url('../fonts/BEBAS___-webfont.eot');
+    src: url('../fonts/BEBAS___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/BEBAS___-webfont.woff') format('woff'),
+         url('../fonts/BEBAS___-webfont.ttf') format('truetype'),
+         url('../fonts/BEBAS___-webfont.svg#BebasRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+font-family: "NunitoR";
+src: url("../fonts/Nunito-Regular.ttf") format("truetype");
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face
+{
+font-family: "NunitoB";
+src: url("../fonts/Nunito-Bold.ttf") format("truetype");
+font-weight: normal;
+font-style: normal;
+}
+
+
+
+
+/*Menu*/
+
+.navbar-toggler
+{
+display: none;
+cursor: pointer;
+}
+
+.navbar{
+margin-top: 20px;
+position: relative;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+justify-content: space-between;
+}
+
+.navbar .txt_head
+{
+font-family: BebasRegular;
+color: #fff;
+/*background-color: rgba(50,50,50,0.5);  */
+font-size: 23px;
+letter-spacing: 1.5px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+ .navbar-nav {
+     display: -webkit-flex;
+display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.navbar-nav a{
+    margin-left: 28px;
+    font-family: BebasRegular;
+    font-size: 20px;
+    color: #252B33;
+
+    text-decoration: none;
+  /*  text-transform: uppercase; */
+    -webkit-transition: all 0.2s 0.0s ease-in-out;
+    -moz-transition: all 0.2s 0.0s ease-in-out;
+    -o-transition: all 0.2s 0.0s ease-in-out;
+    -ms-transition: all 0.2s 0.0s ease-in-out;
+    transition: all 0.2s 0.0s ease-in-out;
+}
+
+.navbar-nav a:first-child
+{
+margin-left: 0;
+}
+
+.navbar-nav a:hover{
+    color: #454B53;
+    text-decoration: underline;
+}
+
+.collapse{
+    justify-content: flex-end;
+}
+
+.navbar-collapse
+{
+display: -webkit-flex;
+display: flex;
+-webkit-flex-basis: auto;
+flex-basis: auto;
+-webkit-flex-grow: 1;
+flex-grow: 1;
+}
+
+
+/*footer*/
+
+footer
+{
+background: #000;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+footer p
+{
+font-family: NunitoR;
+font-size: 17px;
+text-align: center;
+color: #fff;
+}
+footer p span
+{
+font-family: NunitoB;
+}
+
+
+@media all and (max-width:1500px)
+{
+.navbar-nav a{font-size: 18px;    }
+.navbar .txt_head {font-size: 21px;}
+}
+
+@media all and (max-width:940px)
+{
+.navbar-nav{  -webkit-flex-direction: column;flex-direction: column;-webkit-flex-grow: 1;flex-grow: 1;margin-top: 20px;padding: 20px 30px;background-color: #fff;border-radius: 4px;text-align: center;}
+.navbar-nav a{ margin: 0;padding-top: 8px;padding-bottom: 8px;color: #000000;}
+.navbar-nav a:hover{ color: rgba(0, 0, 0, 0.5);}
+.navbar-collapse {-webkit-flex-basis: 100%;flex-basis: 100%;}
+.navbar-collapse.mob-hide {display: none;}
+.navbar-toggler {display: block;}
+.navbar .txt_head {background-color: rgba(50,50,50,0.5);font-size: 19px;}
+}
+
+
+@media all and (min-width:941px)
+{
+ .navbar-collapse {display: -webkit-flex !important; display: flex !important; }
+}

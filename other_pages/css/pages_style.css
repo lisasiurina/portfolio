@@ -1,0 +1,45 @@
+﻿header
+{
+padding-top: 10px;
+/*padding-bottom: 50px;  */
+background: #eee;
+}
+.navbar_wrapper
+{
+padding-left: 50px;
+padding-right: 50px;
+}
+
+.navbar-nav a:hover
+{
+    color: #454B53;
+}
+
+.navbar .txt_head
+{
+color: #252B33;
+text-decoration: none;
+padding-left: 0;
+padding-right: 0;
+}
+.navbar .txt_head:hover
+{
+color: #454B53;
+}
+
+@media all and (max-width:940px)
+{
+
+.navbar .txt_head {background:none;  }
+.navbar-nav{ background-color: #212227;}
+.navbar-nav a {  color: #fff;}
+.navbar-nav a:hover { color: #ddd;}
+
+}
+
+@media all and (max-width:590px)
+{
+
+.navbar_wrapper { padding-left: 2.5%; padding-right: 2.5%;   }
+
+}

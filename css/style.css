@@ -1,0 +1,311 @@
+﻿
+*{margin:0; padding:0;}
+
+body
+{
+background: #111;
+font-family: Helvetica Neue, arial, sans-serif;
+}
+
+.wrapper
+{
+/*max-width: 1200px;  */
+margin: 0 auto;
+padding-left: 175px;
+padding-right: 175px;
+}
+header
+{
+position: relative;
+padding-top: 30px;
+height:830px;
+/*height: 100vh;*/
+background: url(../img/lisish.jpg) no-repeat bottom center;
+background-size: cover;
+}
+.header_content
+{
+display: inline-block;
+margin-top: 450px;
+padding: 10px 20px;
+background-color: rgba(100,100,100,0.4);
+}
+
+header h1
+{
+/*padding-left: 5px;
+padding-right: 5px;*/
+display: inline-block;
+vertical-align: middle;
+font-family: ArchivoBlackR;
+font-size: 23px;
+color: #fff;
+/*background-color: rgba(50,50,50,0.5);           */
+line-height: 35px;
+letter-spacing: 1px;
+}
+header h1 img
+{
+display: inline-block;
+vertical-align: middle;
+}
+
+header .head_txt1
+{
+font-family: NunitoB;
+font-size: 20px;
+/*line-height: 32px;  */
+color: #eee;
+}
+header .line
+{
+width:70px;
+height: 1px;
+margin-top: 30px;
+margin-bottom: 30px;
+background:#fff;
+}
+
+header .social_icon
+{
+margin-top: 20px;
+font-size: 0;
+}
+header .social_icon a
+{
+margin-left: 20px;
+display: inline-block;
+vertical-align: middle ;
+opacity: 1;
+}
+header .social_icon a:first-child
+{
+margin-left: 0;
+}
+
+header .social_icon a:hover
+{
+opacity: 0.9;
+}
+
+header .social_icon a img
+{
+
+}
+
+
+
+/*Основной контент*/
+.main_content
+{
+margin-top: 120px;
+margin-bottom: 60px;
+}
+
+.main_content .case
+{
+display: -webkit-flex;
+display: flex;
+-webkit-justify-content: center;
+justify-content: center;
+margin-bottom: 30px;
+}
+.main_content .case .item_content_wrapper
+{
+-webkit-flex: 0 0 75%;
+flex: 0 0 75%;
+}
+.main_content .case .item_content_wrapper .item_content
+{
+display: -webkit-flex;
+display: flex;
+-webkit-align-items: center;
+align-items: center;
+-webkit-justify-content: center;
+justify-content: center;
+padding: 20px 30px;
+background: #34383b;
+}
+.main_content .case .item_content_wrapper .item_content  .item_img
+{
+flex: 0 1 40%;
+padding-right: 50px;
+text-align: right;
+}
+.main_content .case .item_content_wrapper .item_content  .item_img img
+{
+/*flex-shrink: 0;
+flex-grow: 0;*/
+
+width:100%;
+height: auto;
+}
+
+.main_content .case .item_content_wrapper .item_content  .item_txt
+{
+flex: 0 1 60%;
+}
+.main_content .case .item_content_wrapper .item_content  .item_txt h2
+{
+font-family: BebasRegular;
+font-size: 23px;
+color: #fff;
+letter-spacing: 2px;
+}
+.main_content .case .item_content_wrapper .item_content  .item_txt p
+{
+display: block;
+padding-top: 10px;
+font-family: NunitoR;
+font-size: 22px;
+color: #fff;
+
+}
+.main_content .case .item_content_wrapper .item_content  .item_txt a
+{
+/*display: inline-block;
+padding-top: 10px;
+font-family: NunitoR;
+font-size: 21px;
+color: #fff;
+text-decoration: underline;
+
+.main_content .case .item_content_wrapper .item_content  .item_txt a:hover
+{
+color: #2accac;
+}
+
+
+*/
+
+
+}
+
+.main_content .case .item_content_wrapper .item_content  .item_txt a.but_portfolio
+{
+display: inline-block;
+margin-top: 15px;
+padding: 14px 24px;
+font-family: BebasRegular;
+font-size: 15px;
+color: #fff;
+letter-spacing: 2px;
+background-color: transparent;
+border: 2px solid #fff;
+cursor: pointer;
+text-decoration: none;
+text-align: center;
+-webkit-transition: all ease 0.2s;
+-moz-transition: all ease 0.2s;
+-o-transition: all ease 0.2s;
+transition: all ease 0.2s;
+}
+.main_content .case .item_content_wrapper .item_content  .item_txt a.but_portfolio:hover
+{
+color: #111;
+background-color: #fff;
+}
+
+
+footer
+{
+background: #000;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+footer p
+{
+font-family: NunitoR;
+font-size: 17px;
+text-align: center;
+color: #fff;
+}
+footer p span
+{
+font-family: NunitoB;
+}
+
+
+
+
+@media all and (max-width:1650px)
+{
+
+.wrapper { padding-left: 150px; padding-right: 150px;   }
+header {height:700px;}
+.header_content {margin-top: 350px; }
+
+
+}
+
+
+
+@media all and (max-width:1500px)
+{
+
+
+.wrapper { padding-left: 150px; padding-right: 150px;   }
+header {height:600px;}
+.header_content {margin-top: 250px; }
+
+header h1 {font-size: 20px; }
+
+header .head_txt1 {font-size: 19px; }
+
+
+}
+
+@media all and (max-width:1300px)
+{
+.wrapper { padding-left: 100px; padding-right: 100px;   }
+header {height:570px;}
+.header_content {margin-top: 240px; }
+}
+
+@media all and (max-width:1100px)
+{
+.wrapper { padding-left: 70px; padding-right: 70px;   }
+header {height:450px;}
+.header_content {margin-top: 180px; }
+
+header .line {margin-top: 10px;margin-bottom: 10px;}
+header h1 {font-size: 18px;line-height: 28px;letter-spacing: 1px;}
+header .head_txt1 {font-size: 17px; }
+
+}
+
+@media all and (max-width:940px)
+{
+
+
+.wrapper { padding-left: 30px; padding-right: 30px;   }
+.header_content {margin-top: 150px; }
+header {padding-top: 10px;height:auto; padding-bottom: 10px; }
+.main_content {margin-top: 60px;}
+.main_content .case .item_content_wrapper {-webkit-flex: 0 0 95%;flex: 0 0 95%;}
+.main_content .case .item_content_wrapper .item_content {padding: 10px 20px;}
+.main_content .case .item_content_wrapper .item_content  .item_img {padding-right: 30px;}
+.main_content .case .item_content_wrapper .item_content  .item_txt h2 {font-size: 20px;}
+.main_content .case .item_content_wrapper .item_content  .item_txt p {font-size: 19px;}
+.main_content .case .item_content_wrapper .item_content  .item_txt a.but_portfolio {font-size: 14px;}
+
+
+
+}
+
+@media all and (max-width:590px)
+{
+.wrapper { padding-left: 2.5%; padding-right: 2.5%;   }
+header h1 {font-size: 15px;line-height: 22px;}
+header .head_txt1 {font-size: 15px; }
+
+.main_content .case .item_content_wrapper .item_content {-webkit-flex-wrap: wrap; flex-wrap: wrap;}
+.main_content .case .item_content_wrapper .item_content  .item_img {padding-right: 0;text-align: center;flex: 1 1 100%; }
+.main_content .case .item_content_wrapper .item_content  .item_txt {flex: 1 1 100%; margin-top: 15px; }
+.main_content .case .item_content_wrapper .item_content  .item_txt h2 {font-size: 18px;}
+.main_content .case .item_content_wrapper .item_content  .item_txt p {font-size: 17px;}
+.main_content .case .item_content_wrapper .item_content  .item_txt a.but_portfolio {font-size: 13px;}
+
+
+}
+
