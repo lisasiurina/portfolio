@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Clean Blog - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!--Common files-->
+        <script src="../common/jquery-1.11.3.min.js"></script>
+        <link href="../common/common_style.css" rel="stylesheet" />
+        <script src="../common/common_script.js"></script>
+
+
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/pages_style.css" rel="stylesheet" />
+
+
+
+    </head>
+    <body>
+        <!-- Navigation-->
+
+        <!-- Page Header-->
+<!--        <header class="masthead" style="background-image: url('assets/img/dabikebackground.jpg')">-->
+        <header>
+
+                <div class="navbar_wrapper">
+                    <div class="navbar">
+                        <a href="../index.html" target="_self" class="txt_head">Lisa Siurina</a>
+                        <div id="navbar-toggler" class="navbar-toggler" ><img src="menu_img/icon_menu.svg" width="30" height="auto"></div>
+                        <div class="collapse navbar-collapse mob-hide" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a href="#main_content">Portfolio</a>
+                                <a href="#">About me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" style="display:block; margin-top:20px;" ><img class="img-fluid" src="assets/img/dabikebackground.jpg" alt="..." /></a>
+
+        </header>
+
+        <!-- Post Content-->
+        <article>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <p><h3 data-pm-slice="1 1 []">About the Project</h3>
+<p><strong>Da Bike </strong> is an e-bike rental app that helps people to enjoy the city and run errands easily with the flexibility of renting process.</p>
+<h3>The challenge</h3>
+<p>Designing a bike mobile app to let users easily interact with the interface and rent bikes with flexibility.</p>
+<p><strong>My Role:</strong></p>
+<ul>
+<li>Stakeholder Interviews</li>
+<li>User Flows</li>
+<li>Sketches</li>
+<li>UI Design & Interactive Prototyping</li>
+</ul>
+
+
+<p><strong>Project Duration:&nbsp;</strong>25 - 31 March 2021.</p>
+                        <p>&nbsp;</p>
+
+                        <a href="#!"><img class="img-fluid" src="assets/img/OMAR.jpg" alt="..." /></a>
+                        <a href="#!"><img class="img-fluid" src="assets/img/omardribble.jpg" alt="..." /></a>
+
+
+                    </div>
+                </div>"
+            </div>
+        </article>
+
+
+        <!-- Footer-->
+                  <footer><p><span>Lisa Siurina</span> Copyright 2021</p></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
