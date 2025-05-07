@@ -390,4 +390,20 @@ header h1 code {
 .terminal_links .prompt {
   color: #00ffaa;
 }
+.terminal_block a {
+  color: #00ffc8;
+  text-decoration: none;
+}
+.terminal_block a:hover {
+  text-decoration: underline;
+}
+
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
 
