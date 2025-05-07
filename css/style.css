@@ -234,3 +234,9 @@ footer p span {
   .main_content .case .item_content_wrapper .item_content .item_txt p { font-size: 17px; }
   .main_content .case .item_content_wrapper .item_content .item_txt a.but_portfolio { font-size: 13px; }
 }
+/* Сonsole style for Hello, World! */
+header h1 code {
+  font-family: 'Space Mono', monospace;
+  font-size: 24px;
+  color: #00ffcc;
+}
