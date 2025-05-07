@@ -366,3 +366,28 @@ header h1 code {
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
+.terminal_block {
+  /* уже у тебя есть — оставить как есть */
+}
+
+.terminal_links {
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  color: #00ffcc;
+  margin-top: 20px;
+  padding-left: 15px;
+}
+
+.terminal_links a {
+  color: #00ffcc;
+  text-decoration: none;
+}
+
+.terminal_links a:hover {
+  text-decoration: underline;
+}
+
+.terminal_links .prompt {
+  color: #00ffaa;
+}
+
