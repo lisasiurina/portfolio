@@ -240,3 +240,12 @@ header h1 code {
   font-size: 24px;
   color: #00ffcc;
 }
+header h1 code {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  color: #00ffc8;
+  text-shadow: 1px 1px 0 #000;
+  margin-bottom: 10px;
+}
