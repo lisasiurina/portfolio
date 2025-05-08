@@ -406,4 +406,48 @@ header h1 code {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
+/* === TERMINAL STYLE FOR HEADER TEXT === */
+.txt_head {
+    font-family: 'Space Mono', monospace;
+    color: #00ffff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.navbar-nav a {
+    font-family: 'Space Mono', monospace;
+    color: #00ffff;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    text-decoration: underline;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* === TERMINAL BLOCK STYLING === */
+.terminal_block {
+    font-family: 'Space Mono', monospace;
+    color: #00ffff;
+    background: rgba(0, 0, 0, 0.65);
+    padding: 24px 32px;
+    margin-top: 40px;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
+    line-height: 1.6;
+}
+
+.terminal_block .cursor {
+    animation: blink 1s steps(2, start) infinite;
+}
 
