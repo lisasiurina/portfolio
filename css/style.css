@@ -450,4 +450,50 @@ header h1 code {
 .terminal_block .cursor {
     animation: blink 1s steps(2, start) infinite;
 }
+/* === ШАПКА: имя и меню === */
+.txt_head {
+    font-family: 'Space Mono', monospace;
+    color: #ffffff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.navbar-nav a {
+    font-family: 'Space Mono', monospace;
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* === ПЛАШКА TERMINAL BLOCK === */
+.terminal_block {
+    font-family: 'Space Mono', monospace;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 24px 32px;
+    margin: 40px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    line-height: 1.6;
+    display: block;
+}
+
+/* === Мигающий курсор === */
+.terminal_block .cursor {
+    animation: blink 1s steps(2, start) infinite;
+    color: #ffffff;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
 
