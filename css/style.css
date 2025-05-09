@@ -495,5 +495,14 @@ header h1 code {
 @keyframes blink {
   to { visibility: hidden; }
 }
+.cursor {
+  animation: blink 1s steps(2, start) infinite;
+  color: #ffffff;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
 
 
