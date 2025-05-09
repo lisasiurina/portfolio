@@ -530,6 +530,30 @@ header h1 code {
 .hello-accent {
   color: #00ff99;
 }
+.terminal_block {
+  font-family: 'Space Mono', monospace;
+  color: #ffffff; /* Всё белое */
+  background: rgba(0, 0, 0, 0.6);
+  padding: 24px 32px;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  line-height: 1.6;
+  display: block;
+}
+
+.cursor {
+  animation: blink 1s steps(2, start) infinite;
+  color: #b3b3b3;
+  font-size: 90%;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
 
 
 
