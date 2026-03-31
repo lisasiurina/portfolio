@@ -3,291 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liza Siurina - Cyber Portal</title>
+    <title>LIZA SIURINA | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --neon-pink: #ff2bd5; 
-            --neon-glow: rgba(255, 43, 213, 0.4);
-            --bg-dark: #000000; 
+            --bg: #000000;
+            --card-bg: #0a0a0a;
+            --border: rgba(255, 255, 255, 0.1);
+            --accent: #3b82f6;
+            --text-main: #ffffff;
+            --text-secondary: #e5e7eb; 
+            --text-muted: #9ca3af;     
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: #fff;
-            font-family: 'Space Mono', monospace;
-            overflow: hidden;
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             margin: 0;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        .pixel-font {
-            font-family: 'Press Start 2P', cursive;
+        .mono { 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.15em; 
         }
 
-        /* Анимация левитации аватара */
-        .avatar-box {
+        /* --- НАВИГАЦИЯ --- */
+        .nav-link {
+            transition: all 0.3s ease;
             position: relative;
-            width: 140px;
-            height: 140px;
-            image-rendering: pixelated;
-            filter: drop-shadow(0 0 15px var(--neon-pink));
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        /* Стили неоновых панелей */
-        .cyber-panel {
-            background: rgba(5, 5, 5, 0.95);
-            border: 1px solid var(--neon-pink);
-            box-shadow: 0 0 20px rgba(255, 43, 213, 0.15);
-            position: relative;
-        }
-
-        .profile-sidebar {
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            position: relative;
-        }
-
-        /* Элементы меню */
-        .menu-grid-item {
-            background: rgba(10, 10, 10, 0.9);
-            border: 1px solid rgba(255, 43, 213, 0.4);
-            padding: 24px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-transform: uppercase;
+            opacity: 1; 
+            color: var(--text-main);
+            font-size: 14px; 
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            background: none;
+            border: none;
+        }
+        .nav-link:hover { color: var(--accent); }
+        .nav-link.active { color: var(--accent); }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
         }
 
-        .menu-grid-item:hover {
-            background: rgba(255, 43, 213, 0.15);
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 25px var(--neon-glow);
-            transform: translateY(-2px);
-        }
-
-        .menu-grid-item .arrow {
-            color: var(--neon-pink);
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
-
-        .menu-grid-item:hover .arrow {
-            opacity: 1;
-            filter: drop-shadow(0 0 5px var(--neon-pink));
-        }
-
-        .typing-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #ffe6f9; 
-            display: inline;
-        }
-
-        /* Каретка терминала */
-        .cursor {
+        /* --- ТЕГИ --- */
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            padding: 8px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--text-main);
+            background: transparent;
             display: inline-block;
-            width: 10px;
-            height: 1.2rem;
-            background-color: var(--neon-pink);
-            margin-left: 4px;
-            vertical-align: middle;
-            animation: blink 1s step-end infinite;
-            box-shadow: 0 0 8px var(--neon-pink);
+            transition: all 0.3s ease;
+        }
+        .tech-tag:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.05);
         }
 
-        @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
+        /* --- КАРТОЧКИ ПРОЕКТОВ --- */
+        .project-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            overflow: hidden;
+            transition: border-color 0.4s ease, transform 0.3s ease;
         }
 
-        /* Эффект ретро-монитора (сканирующие линии) */
-        .scanlines {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(255, 0, 255, 0.01) 50%),
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
-            background-size: 100% 3px, 3px 100%;
-            pointer-events: none;
-            z-index: 100;
+        @media (min-width: 768px) { .project-row { grid-template-columns: 1fr 1.2fr; } }
+
+        .project-row:hover { 
+            border-color: var(--accent);
+            transform: translateY(-4px);
         }
 
-        /* Навигация (появляется при переходе) */
-        #top-nav {
-            transform: translateY(-100%);
-            transition: transform 0.5s ease;
+        .project-img-side { 
+            width: 100%; 
+            height: 100%; 
+            min-height: 380px; 
+            overflow: hidden; 
+            background: #0e0e0e; 
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        #top-nav.visible {
+
+        .project-img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .img-gs { filter: grayscale(1); }
+        .project-row:hover .img-gs { filter: grayscale(0); }
+
+        .project-info-side { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+
+        /* --- ПЕРЕХОДЫ МЕЖДУ СТРАНИЦАМИ --- */
+        .page-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .page-content.active { 
+            display: block; 
+            opacity: 1;
             transform: translateY(0);
         }
+
+        /* --- АНИМАЦИИ --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- ДЕКОР --- */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-img-container {
+            width: 100%;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-img-cropped {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 5%; 
+            transform: scale(1.1); 
+            filter: grayscale(1);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .hero-img-container:hover .hero-img-cropped {
+            filter: grayscale(0);
+            transform: scale(1.15); 
+        }
+
+        .story-img-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0a0a0a;
+            position: relative;
+        }
+        
+        .story-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(1);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .story-img-wrapper:hover .story-img {
+            filter: grayscale(0);
+            transform: scale(1.1);
+        }
+
+        #project-viewer {
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            width: 100%; 
+            height: 100%; 
+            background: black; 
+            z-index: 100;
+        }
+        #project-viewer.active { display: block; }
+        .viewer-header {
+            height: 60px; 
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid var(--border);
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 2rem;
+        }
+        iframe { width: 100%; height: calc(100% - 60px); border: none; background: #000; }
+
+        /* --- ФУТЕР --- */
+        footer.main-footer {
+            border-top: 1px solid var(--border);
+            background: #000;
+            padding: 5rem 2rem;
+            margin-top: 5rem;
+        }
+        .footer-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+            text-decoration: none;
+        }
+        .footer-link:hover { color: var(--accent); opacity: 1; }
+        .footer-copyright {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--text-secondary); 
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- СТРАНИЦА КОНТАКТОВ --- */
+        .contact-link {
+            display: block;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--text-main);
+            text-decoration: none;
+        }
+        .contact-link:hover { color: var(--accent); transform: translateX(10px); }
+
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border: 1px solid white;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all 0.4s ease;
+            margin-top: 2rem;
+            text-decoration: none;
+            color: white;
+            background: transparent;
+        }
+        .cv-button:hover { background: white; color: black; }
     </style>
 </head>
-<body class="h-screen flex items-center justify-center p-6">
-    <div class="scanlines"></div>
+<body>
 
-    <!-- Верхнее меню -->
-    <nav id="top-nav" class="fixed top-0 left-0 w-full bg-black/95 border-b border-pink-500/30 py-4 px-10 flex justify-between items-center z-50">
-        <div class="pixel-font text-[10px] text-pink-500">LIZA_SIURINA.SYS</div>
-        <div class="flex gap-8 text-[9px] pixel-font">
-            <a href="#" onclick="goHome()" class="hover:text-pink-400">HOME</a>
-            <a href="#" class="hover:text-pink-400">PORTFOLIO</a>
-            <a href="#" class="hover:text-pink-400">RESEARCH</a>
-            <a href="#" class="hover:text-pink-400">CV</a>
-            <a href="#" class="hover:text-pink-400">CONTACT</a>
+    <div class="grid-bg"></div>
+
+    <!-- ПРОСМОТРЩИК ПРОЕКТОВ -->
+    <div id="project-viewer">
+        <div class="viewer-header">
+            <div class="flex items-center gap-8">
+                <button onclick="showPage('home'); closeProject();" class="mono font-bold text-lg tracking-tighter hover:text-blue-500 transition-colors bg-transparent border-none text-white cursor-pointer">LIZA SIURINA</button>
+                <div class="mono text-gray-300 hidden md:block" id="viewer-title">PROJECT_PREVIEW</div>
+            </div>
+            <button onclick="closeProject()" class="mono hover:text-red-500 flex items-center gap-2 group bg-transparent border-none text-white cursor-pointer">
+                <span>Close</span> <span class="opacity-70 text-[8px] group-hover:opacity-100">[ESC]</span>
+            </button>
         </div>
-    </nav>
+        <iframe id="project-iframe" src=""></iframe>
+    </div>
 
-    <!-- Основной контент -->
-    <main id="portal" class="w-full max-w-6xl flex flex-col md:flex-row gap-10 items-stretch z-10 transition-opacity duration-500">
-        
-        <!-- Левая панель: Профиль -->
-        <div class="profile-sidebar p-8 flex flex-col items-center shrink-0 w-full md:w-72">
-            <div class="avatar-box mb-8 mt-4">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-                    <!-- Волосы (фон) -->
-                    <rect x="7" y="9" width="18" height="19" fill="#2d1a10" />
-                    <!-- Лицо -->
-                    <rect x="10" y="10" width="12" height="11" fill="#FFE0BD" />
-                    <!-- Глаза (темно-оливковые) -->
-                    <rect x="12" y="14" width="2" height="2" fill="#2d3d1a" /> 
-                    <rect x="18" y="14" width="2" height="2" fill="#2d3d1a" />
-                    <!-- Рот -->
-                    <rect x="13" y="18" width="6" height="1" fill="#FF8080" />
-                    <rect x="12" y="17" width="1" height="1" fill="#FF8080" />
-                    <rect x="19" y="17" width="1" height="1" fill="#FF8080" />
-                    <!-- Волосы (передний план) -->
-                    <rect x="8" y="8" width="16" height="5" fill="#3d2315" />
-                    <rect x="7" y="11" width="3" height="14" fill="#3d2315" />
-                    <rect x="22" y="11" width="3" height="14" fill="#3d2315" />
-                    <!-- Одежда -->
-                    <rect x="9" y="21" width="14" height="7" fill="#111" />
-                    <rect x="9" y="23" width="14" height="1" fill="#ff2bd5" opacity="0.5" />
-                </svg>
-            </div>
+    <!-- НАВИГАЦИЯ -->
+    <header id="main-nav" class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 py-8 px-8 md:px-16 flex justify-between items-center">
+        <button onclick="showPage('home')" class="mono font-bold text-2xl tracking-tighter hover:text-blue-500 transition-colors bg-transparent border-none text-white cursor-pointer">LIZA SIURINA</button>
+        <nav class="flex gap-8 md:gap-14">
+            <button onclick="showPage('home')" id="nav-home" class="nav-link active mono">Projects</button>
+            <button onclick="showPage('story')" id="nav-story" class="nav-link mono">My Story</button>
+            <button onclick="showPage('contacts')" id="nav-contacts" class="nav-link mono">Contacts</button>
+        </nav>
+    </header>
 
-            <div class="space-y-2 mb-4 text-center">
-                <p class="pixel-font text-[10px] text-white leading-tight">INTERACTIVE SYSTEMS</p>
-                <p class="pixel-font text-[10px] text-white leading-tight">RESEARCH & DESIGN</p>
-            </div>
+    <main class="max-w-7xl mx-auto">
 
-            <div class="mb-4">
-                <p class="pixel-font text-[9px] text-pink-400">Google PhD Fellow</p>
-            </div>
-            <div class="mt-auto w-full"></div>
-        </div>
-
-        <!-- Правая панель: Терминал и Кнопки -->
-        <div class="flex-grow flex flex-col gap-8">
-            
-            <div class="pt-4">
-                <div class="cyber-panel p-10 min-h-[220px] flex flex-col justify-center">
-                    <!-- Тэг с именем сверху -->
-                    <div class="absolute -top-3 left-6 bg-pink-600 px-3 py-1 text-[9px] pixel-font shadow-[0_0_15px_var(--neon-pink)] whitespace-nowrap z-20">
-                        LIZA SIURINA
+        <!-- ГЛАВНАЯ СТРАНИЦА -->
+        <div id="page-home" class="page-content active pt-48 pb-20 px-8 md:px-16">
+            <section class="mb-32 flex flex-col md:flex-row gap-16 items-center">
+                <div class="flex-1 order-2 md:order-1">
+                    <h1 class="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-4">
+                        LIZA <br> SIURINA
+                    </h1>
+                    <div class="mono text-blue-400 mb-8 tracking-[0.3em] text-lg">Researcher & Developer</div>
+                    <p class="text-xl md:text-2xl text-gray-200 max-w-2xl font-light leading-relaxed">
+                        I build systems that bridge the gap between human behavior and digital interfaces. Focused on HCI, Spatial Computing, and Telemetry.
+                    </p>
+                </div>
+                <div class="w-64 md:w-80 shrink-0 order-1 md:order-2">
+                    <div class="relative group hero-img-container rounded-sm border border-white/20">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/IMG_1686.jpg" alt="[Портрет Лизы Сиуриной]" class="relative hero-img-cropped" onerror="this.src='https://via.placeholder.com/400x500/111/fff?text=LIZA'">
                     </div>
-                    
-                    <div id="greeting-container" class="flex items-start">
-                        <div class="flex-grow">
-                            <div id="greeting" class="typing-text"></div><span id="terminal-cursor" class="cursor hidden"></span>
+                </div>
+            </section>
+
+            <div class="project-list space-y-12">
+                <!-- ПРОЕКТ: RAP & LYRICS -->
+                <div onclick="openExternalProject('https://lisasiurina.github.io/rapandlyrics/', 'Rap & Lyrics')" class="project-row">
+                    <div class="project-img-side">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/rapncars.jpg" alt="[Превью Rap & Lyrics]" class="project-img img-gs" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=RAP+PROJECT'">
+                    </div>
+                    <div class="project-info-side">
+                        <div class="mono text-blue-400 mb-4">Computational Analysis</div>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">Rap & Lyrics</h3>
+                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-8">
+                            Quantitative analysis of song lyrics, identifying linguistic patterns and cultural sentiments using NLP techniques.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-tag">PYTHON</span><span class="tech-tag">NLP</span><span class="tech-tag">DATA VIZ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ПРОЕКТ: WEBCOM -->
+                <div onclick="showPage('case-webcom')" class="project-row">
+                    <div class="project-img-side">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/other_pages/assets/img/mockup.png" alt="[Мокап Web Communications]" class="project-img img-gs" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=WEB+COM+MOCKUP'">
+                    </div>
+                    <div class="project-info-side">
+                        <div class="mono text-blue-400 mb-4">Visual Identity</div>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">Web Communications</h3>
+                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-8">
+                            Conceptual redesign for a marketing agency, based on geometric clarity and content hierarchy.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-tag">UI DESIGN</span><span class="tech-tag">MINIMALISM</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Навигационная сетка -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="menu-grid-item pixel-font text-[11px]" onclick="navigateTo('projects')">
-                    <span>01. Projects</span>
-                    <span class="arrow">>></span>
+        <!-- КЕЙС: WEB COMMUNICATIONS -->
+        <div id="page-case-webcom" class="page-content pt-40 pb-20 px-8 md:px-16">
+            <header class="min-h-[40vh] flex flex-col justify-center mb-12 reveal max-w-7xl mx-auto">
+                <div class="mono text-blue-400 mb-4 tracking-[0.4em]">Visual Identity // 2022</div>
+                <h1 class="text-6xl md:text-8xl font-black uppercase mb-8">Web <br> Communications</h1>
+                <p class="text-xl md:text-2xl font-light text-gray-200 leading-tight max-w-4xl">
+                    Conceptual redesign for a marketing agency. Built on the principles of minimalism, geometric clarity, and content-first hierarchy.
+                </p>
+            </header>
+            <div class="mb-20">
+                <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/other_pages/assets/img/web_comm_website.jpg" class="w-full border border-white/10" alt="[Макет WebCom]" onerror="this.src='https://via.placeholder.com/1200x800/111/fff?text=WEB+COM+LAYOUT'">
+            </div>
+            <footer class="py-16 border-t border-white/10">
+                <button onclick="showPage('home')" class="mono text-blue-400 hover:text-white transition-all bg-transparent border-none cursor-pointer">← Back to Archive</button>
+            </footer>
+        </div>
+
+        <!-- СТРАНИЦА: STORY -->
+        <div id="page-story" class="page-content pt-48 pb-20 px-8 md:px-16">
+            <h2 class="text-6xl md:text-8xl font-black mb-16 uppercase tracking-tighter">The Story</h2>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start mb-32">
+                <div class="md:col-span-5 story-img-wrapper reveal">
+                    <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/vr%20pic.jpg" alt="[Лиза в VR]" class="story-img" onerror="this.src='https://via.placeholder.com/600x800/111/fff?text=RESEARCH+PIC'">
                 </div>
-                <div class="menu-grid-item pixel-font text-[11px]" onclick="navigateTo('research')">
-                    <span>02. Research</span>
-                    <span class="arrow">>></span>
-                </div>
-                <div class="menu-grid-item pixel-font text-[11px]" onclick="navigateTo('cv')">
-                    <span>03. CV</span>
-                    <span class="arrow">>></span>
-                </div>
-                <div class="menu-grid-item pixel-font text-[11px]" onclick="navigateTo('contact')">
-                    <span>04. Contact</span>
-                    <span class="arrow">>></span>
+                <div class="md:col-span-7 space-y-12">
+                    <div class="space-y-6 text-xl md:text-2xl text-gray-200 font-light leading-relaxed reveal">
+                        <p>My journey began at the intersection of Psychology and Computer Engineering. I focus on how humans perceive digital spaces, specifically in XR.</p>
+                        <p>Currently researching how tactile feedback and spatial sound influence immersion levels.</p>
+                    </div>
+                    <div class="reveal">
+                        <!-- Кнопка резюме с обновленным текстом -->
+                        <a href="https://raw.githubusercontent.com/lisasiurina/portfolio/main/CV%20Liza%20Siurina_eng.pdf" target="_blank" class="cv-button group">
+                            <span>Download CV in ENG</span>
+                            <span class="opacity-70 group-hover:translate-x-1 transition-transform">→</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <div class="h-8"></div>
         </div>
+
+        <!-- СТРАНИЦА: CONTACTS -->
+        <div id="page-contacts" class="page-content pt-48 pb-20 px-8 md:px-16">
+            <h2 class="text-6xl md:text-8xl font-black mb-16 uppercase tracking-tighter">Let's <br> Connect</h2>
+            <div class="mt-20 space-y-8 md:space-y-4">
+                <div class="reveal">
+                    <span class="mono text-blue-400 block mb-2">Primary channel</span>
+                    <a href="mailto:liza.siurina@gmail.com" class="contact-link">liza.siurina@gmail.com</a>
+                </div>
+                <div class="flex flex-wrap gap-12 pt-12 mono reveal">
+                    <a href="https://github.com/lisasiurina" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline">GitHub</a>
+                    <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline">LinkedIn</a>
+                    <a href="https://t.me/liza_uzi" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline">Telegram</a>
+                </div>
+            </div>
+        </div>
+
     </main>
 
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div class="flex flex-col gap-2">
+                <div class="mono font-bold text-xl tracking-tighter text-white">LIZA SIURINA</div>
+                <div class="footer-copyright">© 2024 PORTFOLIO CORE // ALL RIGHTS RESERVED</div>
+            </div>
+            <div class="flex flex-wrap gap-8 md:gap-12">
+                <a href="https://github.com/lisasiurina" target="_blank" class="footer-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="footer-link">LinkedIn</a>
+                <a href="https://t.me/liza_uzi" target="_blank" class="footer-link">Telegram</a>
+                <a href="mailto:liza.siurina@gmail.com" class="footer-link">Email</a>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        const welcomeMsg = "Hi, I’m Liza.\n\nI design and research interactive systems and games.\n\nBelow you can explore my projects, research, and CV.";
-        
-        let isTyping = false;
-
-        // Эффект печатной машинки
-        function typeWriter(text, elementId) {
-            if (isTyping) return;
-            isTyping = true;
-            
-            const el = document.getElementById(elementId);
-            const cursor = document.getElementById('terminal-cursor');
-            
-            el.innerHTML = "";
-            cursor.classList.add('hidden');
-            
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i < text.length) {
-                    if (text.charAt(i) === "\n") {
-                        el.innerHTML += "<br>";
-                    } else {
-                        el.innerHTML += text.charAt(i);
-                    }
-                    i++;
-                } else {
-                    clearInterval(interval);
-                    isTyping = false;
-                    cursor.classList.remove('hidden'); // Показываем мигающий курсор в конце
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { 
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active'); 
                 }
-            }, 60);
-        }
+            });
+        }, { threshold: 0.1 });
 
-        // Заглушка для навигации
-        function navigateTo(section) {
-            const portal = document.getElementById('portal');
-            const topNav = document.getElementById('top-nav');
-            portal.style.opacity = '0';
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(p => p.classList.remove('active'));
+            
             setTimeout(() => {
-                portal.classList.add('hidden');
-                topNav.classList.add('visible');
-            }, 500);
+                const target = document.getElementById('page-' + pageId);
+                if (target) {
+                    target.classList.add('active');
+                    target.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                }
+            }, 50);
+
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            const navBtn = document.getElementById('nav-' + pageId);
+            if (navBtn) navBtn.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Возврат на главную
-        function goHome() {
-            const portal = document.getElementById('portal');
-            const topNav = document.getElementById('top-nav');
-            topNav.classList.remove('visible');
-            setTimeout(() => {
-                portal.classList.remove('hidden');
-                portal.style.opacity = '1';
-                typeWriter(welcomeMsg, 'greeting');
-            }, 500);
+        function openExternalProject(url, title) {
+            const viewer = document.getElementById('project-viewer');
+            const iframe = document.getElementById('project-iframe');
+            document.getElementById('viewer-title').innerText = title.toUpperCase();
+            iframe.src = url;
+            viewer.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        window.onload = () => {
-            typeWriter(welcomeMsg, 'greeting');
-        };
+        function closeProject() {
+            const viewer = document.getElementById('project-viewer');
+            const iframe = document.getElementById('project-iframe');
+            viewer.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', (e) => { 
+            if (e.key === 'Escape') closeProject(); 
+        });
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
-
-
