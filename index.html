@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIZA SIURINA | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #000000;
@@ -15,6 +15,10 @@
             --text-main: #ffffff;
             --text-secondary: #e5e7eb; 
             --text-muted: #9ca3af;     
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -154,26 +158,28 @@
             pointer-events: none;
         }
 
+        /* ГЛАВНОЕ ФОТО (КАДРИРОВАНИЕ) */
         .hero-img-container {
             width: 100%;
-            aspect-ratio: 4/5;
+            aspect-ratio: 3/4;
             overflow: hidden;
             position: relative;
+            background: #0a0a0a;
         }
 
         .hero-img-cropped {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 5%; 
-            transform: scale(1.1); 
+            object-position: 50% 20%;
+            display: block;
             filter: grayscale(1);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         .hero-img-container:hover .hero-img-cropped {
             filter: grayscale(0);
-            transform: scale(1.15); 
+            transform: scale(1.1);
         }
 
         .story-img-wrapper {
@@ -277,6 +283,33 @@
             background: transparent;
         }
         .cv-button:hover { background: white; color: black; }
+
+        .hero-quote {
+            border-left: 2px solid var(--accent);
+            padding-left: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* --- СТИЛЬ ЗАГОЛОВКА РАЗДЕЛА --- */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            scroll-margin-top: 150px; /* Отступ при скролле, чтобы заголовок не прилипал к верху */
+        }
+        .section-label .line {
+            height: 1px;
+            background: var(--border);
+            flex-grow: 1;
+        }
+        /* Яркий заголовок */
+        .section-title-bright {
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 0.4em;
+            text-shadow: 0 0 15px rgba(255,255,255,0.2);
+        }
     </style>
 </head>
 <body>
@@ -301,7 +334,8 @@
     <header id="main-nav" class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 py-8 px-8 md:px-16 flex justify-between items-center">
         <button onclick="showPage('home')" class="mono font-bold text-2xl tracking-tighter hover:text-blue-500 transition-colors bg-transparent border-none text-white cursor-pointer">LIZA SIURINA</button>
         <nav class="flex gap-8 md:gap-14">
-            <button onclick="showPage('home')" id="nav-home" class="nav-link active mono">Projects</button>
+            <!-- Заменил Projects на Portfolio и добавил скролл -->
+            <button onclick="scrollToPortfolio()" id="nav-home" class="nav-link active mono">Portfolio</button>
             <button onclick="showPage('story')" id="nav-story" class="nav-link mono">My Story</button>
             <button onclick="showPage('contacts')" id="nav-contacts" class="nav-link mono">Contacts</button>
         </nav>
@@ -311,22 +345,35 @@
 
         <!-- ГЛАВНАЯ СТРАНИЦА -->
         <div id="page-home" class="page-content active pt-48 pb-20 px-8 md:px-16">
-            <section class="mb-32 flex flex-col md:flex-row gap-16 items-center">
-                <div class="flex-1 order-2 md:order-1">
-                    <h1 class="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-4">
-                        LIZA <br> SIURINA
+            <section class="mb-32 flex flex-col md:flex-row gap-16 items-start">
+                <div class="flex-1 order-2 md:order-1 pt-4">
+                    <h1 class="text-7xl md:text-[100px] font-black tracking-tight leading-[0.9] mb-8">
+                        Liza Siurina
                     </h1>
-                    <div class="mono text-blue-400 mb-8 tracking-[0.3em] text-lg">Researcher & Developer</div>
-                    <p class="text-xl md:text-2xl text-gray-200 max-w-2xl font-light leading-relaxed">
-                        I build systems that bridge the gap between human behavior and digital interfaces. Focused on HCI, Spatial Computing, and Telemetry.
-                    </p>
+                    <div class="text-2xl md:text-3xl text-gray-400 font-light mb-2">UX Researcher & Interaction Designer</div>
+                    <div class="text-blue-500 text-lg md:text-xl font-medium mb-12">Google PhD Fellow</div>
+                    
+                    <div class="hero-quote max-w-xl">
+                        <p class="text-2xl md:text-3xl text-gray-400 font-light leading-snug">
+                            Hi, I’m Liza — I design experiences that help people understand data and interact with complex systems.
+                        </p>
+                    </div>
                 </div>
-                <div class="w-64 md:w-80 shrink-0 order-1 md:order-2">
-                    <div class="relative group hero-img-container rounded-sm border border-white/20">
-                        <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/IMG_1686.jpg" alt="[Портрет Лизы Сиуриной]" class="relative hero-img-cropped" onerror="this.src='https://via.placeholder.com/400x500/111/fff?text=LIZA'">
+                <div class="w-72 md:w-[400px] shrink-0 order-1 md:order-2">
+                    <div class="relative group hero-img-container rounded-sm shadow-2xl">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/IMG_1686.jpg" alt="[Портрет Лизы Сиуриной]" class="relative hero-img-cropped" onerror="this.src='https://via.placeholder.com/600x800/111/fff?text=LIZA'">
                     </div>
                 </div>
             </section>
+
+            <!-- РАЗДЕЛ: SELECTED WORK (СДЕЛАЛ ЯРЧЕ) -->
+            <div id="selected-work-section" class="section-label reveal">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                    <span class="mono section-title-bright uppercase">Selected Work</span>
+                </div>
+                <div class="line"></div>
+            </div>
 
             <div class="project-list space-y-12">
                 <!-- ПРОЕКТ: RAP & LYRICS -->
@@ -395,7 +442,6 @@
                         <p>Currently researching how tactile feedback and spatial sound influence immersion levels.</p>
                     </div>
                     <div class="reveal">
-                        <!-- Кнопка резюме с обновленным текстом -->
                         <a href="https://raw.githubusercontent.com/lisasiurina/portfolio/main/CV%20Liza%20Siurina_eng.pdf" target="_blank" class="cv-button group">
                             <span>Download CV in ENG</span>
                             <span class="opacity-70 group-hover:translate-x-1 transition-transform">→</span>
@@ -447,6 +493,23 @@
             });
         }, { threshold: 0.1 });
 
+        // Функция скролла к разделу портфолио
+        function scrollToPortfolio() {
+            // Если мы не на главной, сначала переходим на главную
+            const homePage = document.getElementById('page-home');
+            if (!homePage.classList.contains('active')) {
+                showPage('home');
+                // Даем небольшую задержку для переключения страницы перед скроллом
+                setTimeout(() => {
+                    const section = document.getElementById('selected-work-section');
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                const section = document.getElementById('selected-work-section');
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page-content');
             pages.forEach(p => p.classList.remove('active'));
@@ -460,10 +523,13 @@
             }, 50);
 
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            const navBtn = document.getElementById('nav-' + pageId);
+            // Подсветка кнопки (для 'home' кнопка теперь называется по-другому, но ID тот же)
+            const navBtn = document.getElementById('nav-' + (pageId === 'case-webcom' ? 'home' : pageId));
             if (navBtn) navBtn.classList.add('active');
             
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (pageId !== 'home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
         function openExternalProject(url, title) {
