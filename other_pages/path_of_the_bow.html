@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIZA SIURINA | Path of the Bow</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #000000;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        
+        .mono { 
+            font-family: 'JetBrains Mono', monospace; 
+        }
+        
+        /* Navigation Links */
+        .nav-link {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #fff;
+        }
+
+        /* Footer Links */
+        .footer-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: #60a5fa; 
+        }
+
+        .footer-copyright {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #444;
+            letter-spacing: 0.05em;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image Containers */
+        .hero-img-container {
+            background: #111;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+        
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .img-box {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            display: block;
+            width: 100%;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+        
+        .img-box:hover img {
+            transform: scale(1.02);
+        }
+
+        .storyboard-img-container {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            display: block; 
+            aspect-ratio: 4 / 3;
+        }
+
+        .storyboard-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        .storyboard-item:hover .storyboard-img-container img {
+            transform: scale(1.05);
+        }
+
+        .section-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        .storyboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .storyboard-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-nav" class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 py-6 px-8 md:px-16 flex justify-between items-center transition-all duration-300">
+        <button class="mono font-bold text-2xl tracking-tighter hover:text-blue-500 transition-colors bg-transparent border-none text-white cursor-pointer uppercase">
+            LIZA SIURINA
+        </button>
+        <nav class="flex gap-8 md:gap-14">
+            <button class="nav-link active mono">Portfolio</button>
+            <button class="nav-link mono">My Story</button>
+            <button class="nav-link mono">Contacts</button>
+        </nav>
+    </header>
+
+    <div id="page-case-bow" class="page-content pt-40 pb-20 px-8 md:px-16">
+        
+        <!-- 00 // HERO HEADER -->
+        <header class="min-h-[40vh] flex flex-col justify-center mb-12 reveal max-w-7xl mx-auto">
+            <div class="mono text-blue-400 mb-4 tracking-[0.4em] uppercase">Interaction System Design</div>
+            <h1 class="text-6xl md:text-[100px] font-black uppercase mb-8 leading-[0.9]">Path of <br> the Bow</h1>
+            <p class="text-xl md:text-3xl font-light text-gray-200 leading-tight max-w-4xl mb-12">
+                A solo VR prototype built in Unity, set in a traditional Japanese dojo where you assemble a bow piece by piece, string it using physical gestures, and take your shot.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-white/10">
+                <div>
+                    <h4 class="mono text-zinc-600 text-[10px] uppercase tracking-widest mb-2">Hardware & Platform</h4>
+                    <p class="text-sm uppercase tracking-wide text-gray-300">HTC Vive + Vive Foot Tracker / Unity</p>
+                </div>
+                <div>
+                    <h4 class="mono text-zinc-600 text-[10px] uppercase tracking-widest mb-2">Tech Stack</h4>
+                    <p class="text-sm uppercase tracking-wide text-gray-300">Hurricane VR / C# / Full-Body IK</p>
+                </div>
+                <div>
+                    <h4 class="mono text-zinc-600 text-[10px] uppercase tracking-widest mb-2">Role</h4>
+                    <div class="text-sm text-gray-300 space-y-1 font-light">
+                        <p class="font-medium uppercase tracking-wide">Solo Developer</p>
+                        <p>Interaction Design</p>
+                        <p>C# Logic</p>
+                        <p>Hardware Setup</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mono text-zinc-600 text-[10px] uppercase tracking-widest mb-2">Links</h4>
+                    <div class="flex flex-col gap-2 text-sm uppercase tracking-wide font-medium">
+                        <a href="https://github.com/lisasiurina/path-of-the-bow" target="_blank" class="text-blue-400 hover:text-white transition-colors">↗ GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ASSEMBLY SHOWCASE -->
+        <div class="max-w-7xl mx-auto mb-48 reveal">
+            <div class="hero-img-container">
+                 <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/assemblyvid%20(compressed).gif" alt="Bow Assembly Process" loading="lazy">
+            </div>
+            <div class="mt-4 mono text-[10px] text-zinc-600 uppercase tracking-widest text-right">Figure 01: Full assembly sequence in a continuous GIF loop.</div>
+        </div>
+
+        <!-- 01 // INTERACTION FLOW (STORYBOARD) -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <div class="grid md:grid-cols-12 gap-8 mb-16">
+                <div class="md:col-span-8">
+                    <h2 class="mono text-blue-400 text-sm mb-6 uppercase tracking-widest">01. Interaction Flow</h2>
+                    <p class="text-2xl font-light text-gray-300">
+                        Step-by-step breakdown of the assembly and shooting loop:
+                    </p>
+                </div>
+            </div>
+            
+            <div class="storyboard-grid">
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/storyboard_1.jpeg" alt="Workbench" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">01. Workbench</h4>
+                        <p class="text-zinc-500 text-sm font-light">Spawning at the table with unstrung bow parts and arrow materials.</p>
+                    </div>
+                </div>
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/storyboard_2_arrowhead.jpeg" alt="Arrow Shaft" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">02. Arrow Shaft</h4>
+                        <p class="text-zinc-500 text-sm font-light">Attaching the metal point to the shaft.</p>
+                    </div>
+                </div>
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/storyboard_3_arrow.jpeg" alt="Fletching" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">03. Fletching</h4>
+                        <p class="text-zinc-500 text-sm font-light">Adding feathers to finish the arrow.</p>
+                    </div>
+                </div>
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/storyboard_4_limb.jpeg" alt="Lower Limb" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">04. Lower Limb</h4>
+                        <p class="text-zinc-500 text-sm font-light">Snapping the bottom limb into the riser.</p>
+                    </div>
+                </div>
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/storyboard_5_limbs.jpeg" alt="Upper Limb" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">05. Upper Limb</h4>
+                        <p class="text-zinc-500 text-sm font-light">Snapping the top limb to form the bow frame.</p>
+                    </div>
+                </div>
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/storyboard_6_limb+loop.jpeg" alt="Initial Loop" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">06. Initial Loop</h4>
+                        <p class="text-zinc-500 text-sm font-light">Hooking the bowstring onto the bottom limb notch.</p>
+                    </div>
+                </div>
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/storyboard_7_stringing.jpeg" alt="Foot Anchor" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">07. Foot Anchor</h4>
+                        <p class="text-zinc-500 text-sm font-light">Lowering the frame to the physical Vive Foot Tracker to flex the bow.</p>
+                    </div>
+                </div>
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/storyboard_8.jpeg" alt="Stringing State" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">08. Stringing State</h4>
+                        <p class="text-zinc-500 text-sm font-light">Securing the top loop while holding the braced posture.</p>
+                    </div>
+                </div>
+                <div class="storyboard-item">
+                    <div class="storyboard-img-container">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/xoxoxo.png" alt="Target Shot" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="mono text-white text-xs uppercase font-bold mb-2">09. Target Shot</h4>
+                        <p class="text-zinc-500 text-sm font-light">Nocking, drawing, and releasing at the target.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 02 // PHYSICAL CONSTRAINTS & HARDWARE LOGIC -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <h2 class="mono text-blue-400 text-sm mb-12 uppercase tracking-widest">02. Physical Constraints & Hardware Logic</h2>
+            <div class="max-w-4xl space-y-12">
+                <div>
+                    <h3 class="text-2xl font-bold uppercase mb-4">The Physical Constraint</h3>
+                    <p class="text-gray-400 font-light leading-relaxed text-lg">
+                        Stringing a real bow takes leverage—you brace the limb against your foot and use your body weight to bend the wood. Standard hand controllers can't track lower-body position, and mapping this to a button press or skipping it entirely would make the whole thing feel weightless and fake.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold uppercase mb-4">Implementation</h3>
+                    <p class="text-gray-400 font-light leading-relaxed text-lg mb-6">
+                        To track the stance, the setup uses an HTC Vive Tracker strapped to the player's foot, linked to a Full-Body IK avatar.
+                    </p>
+                    <p class="text-gray-400 font-light leading-relaxed text-lg">
+                        The stringing logic runs every frame in C#. The attach state is gated by two simultaneous <span class="mono text-sm text-zinc-300">Vector3.Distance</span> checks: hand-to-notch proximity and controller-to-foot-tracker distance. The string only locks once the player physically lowers the bow frame to meet their actual foot position.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 03 // DIEGETIC ONBOARDING -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <h2 class="mono text-blue-400 text-sm mb-12 uppercase tracking-widest">03. Diegetic Onboarding</h2>
+            <div class="grid md:grid-cols-12 gap-12 items-start">
+                <div class="md:col-span-5 space-y-12">
+                    <div class="sticky top-32">
+                        <h3 class="text-2xl font-bold uppercase mb-4">In-World Visual Guides</h3>
+                        <p class="text-gray-400 font-light leading-relaxed text-lg">
+                            Most people don't know the traditional bow-assembly process or the foot-bracing technique. Floating tutorial boxes or UI overlays would break the realism of the interaction.
+                        </p>
+                        <p class="text-gray-400 font-light leading-relaxed text-lg mt-6">
+                            To keep the instruction fully diegetic, illustrated wall scrolls demonstrating the assembly steps and foot placement are hung directly around the workspace, serving as an intuitive reference in the environment.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:col-span-7 space-y-12">
+                    <div>
+                        <div class="img-box aspect-[16/10]">
+                            <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/scaffolding.png" alt="Wall scrolls as visual guides" loading="lazy">
+                        </div>
+                        <div class="mt-4 mono text-[10px] text-zinc-600 uppercase tracking-widest text-right">Figure 02: Wall scrolls demonstrating assembly steps and foot bracing.</div>
+                    </div>
+                    <div>
+                        <div class="img-box aspect-[16/10]">
+                            <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/pathofthebow_menu.jpg" alt="Main menu state" loading="lazy">
+                        </div>
+                        <div class="mt-4 mono text-[10px] text-zinc-600 uppercase tracking-widest text-right">Figure 03: Dojo environment and menu setup before entering the workspace.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 04 // RETROSPECTIVE -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <h2 class="mono text-blue-400 text-sm mb-12 uppercase tracking-widest">04. Retrospective</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold uppercase mb-4">Designing for Hardware Scope</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        A foot-mounted Vive Tracker made posture-based interaction possible by providing the player’s actual foot position. With a standard headset-and-controllers setup, the mechanic would require an approximation based on controller height or a simpler proximity check. Hardware limitations shape the interaction itself.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold uppercase mb-4">Diegetic Guidance vs. UX Clarity</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Wall scrolls kept the assembly instructions within the environment. However, diegetic guidance is only effective when players can actually notice and understand it. If an essential step remains unclear, a brief UI prompt is better than a hidden mechanic. Visual consistency should never come at the expense of clarity.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="py-16 border-t border-white/10 max-w-7xl mx-auto reveal">
+            <button class="mono text-blue-400 hover:text-white transition-all bg-transparent border-none cursor-pointer uppercase tracking-widest text-xs flex items-center gap-2 group">
+                <span class="transform group-hover:-translate-x-1 transition-transform">←</span> Back to Archive
+            </button>
+        </footer>
+    </div>
+
+    <!-- MAIN FOOTER -->
+    <footer class="main-footer py-16 bg-zinc-950 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div class="flex flex-col gap-3">
+                <div class="mono font-bold text-xl tracking-tighter text-white uppercase">LIZA SIURINA</div>
+                <div class="footer-copyright uppercase">© 2026 PORTFOLIO. ALL RIGHTS RESERVED</div>
+            </div>
+            <div class="flex flex-wrap gap-6 md:gap-12">
+                <a href="https://github.com/lisasiurina" target="_blank" class="footer-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="footer-link">LinkedIn</a>
+                <a href="https://t.me/liza_uzi" target="_blank" class="footer-link">Telegram</a>
+                <a href="mailto:liza.siurina@gmail.com" class="footer-link text-white hover:text-blue-400">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup Intersection Observer for smooth reveal animations on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-6');
+                } else {
+                    header.classList.add('py-6');
+                    header.classList.remove('py-4');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
