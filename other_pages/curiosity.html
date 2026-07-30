@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIZA SIURINA | Curiosity VR Research Case Study</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #000000;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        
+        .mono { 
+            font-family: 'JetBrains Mono', monospace; 
+        }
+        
+        /* Navigation Links */
+        .nav-link {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #fff;
+        }
+
+        /* Footer Links */
+        .footer-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: #60a5fa; 
+        }
+
+        .footer-copyright {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #444;
+            letter-spacing: 0.05em;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image Containers */
+        .hero-img-container {
+            background: #111;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .img-box {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .img-box:hover img, .hero-img-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .section-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 4rem;
+            margin-bottom: 8rem;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-nav" class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 py-6 px-8 md:px-16 flex justify-between items-center transition-all duration-300">
+        <button class="mono font-bold text-2xl tracking-tighter hover:text-blue-500 transition-colors bg-transparent border-none text-white cursor-pointer uppercase">
+            LIZA SIURINA
+        </button>
+        <nav class="flex gap-8 md:gap-14">
+            <button class="nav-link active mono">Portfolio</button>
+            <button class="nav-link mono">My Story</button>
+            <button class="nav-link mono">Contacts</button>
+        </nav>
+    </header>
+
+    <div id="page-case-curiosity" class="page-content pt-40 pb-20 px-8 md:px-16">
+        
+        <!-- 00 // HERO HEADER -->
+        <header class="min-h-[40vh] flex flex-col justify-center mb-12 reveal max-w-7xl mx-auto">
+            <div class="mono text-blue-400 mb-4 tracking-[0.4em] uppercase">Ongoing PhD Research</div>
+            <h1 class="text-6xl md:text-[100px] font-black uppercase mb-8 leading-[0.9]">Curiosity</h1>
+            <p class="text-xl md:text-3xl font-light text-gray-200 leading-tight max-w-4xl mb-12">
+                Exploring how design patterns elicit curiosity in virtual reality.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-white/10">
+                <div>
+                    <h4 class="mono text-zinc-600 text-[10px] uppercase tracking-widest mb-2">Category</h4>
+                    <p class="text-sm uppercase tracking-wide text-gray-300">Ongoing PhD Research</p>
+                </div>
+                <div>
+                    <h4 class="mono text-zinc-600 text-[10px] uppercase tracking-widest mb-2">Domain</h4>
+                    <p class="text-sm uppercase tracking-wide text-gray-300">Virtual Reality / Experience Design</p>
+                </div>
+                <div>
+                    <h4 class="mono text-zinc-600 text-[10px] uppercase tracking-widest mb-2">Tech Stack</h4>
+                    <p class="text-sm uppercase tracking-wide text-gray-300">Unity · C# · Open XR</p>
+                </div>
+                <div>
+                    <h4 class="mono text-zinc-600 text-[10px] uppercase tracking-widest mb-2">Role</h4>
+                    <p class="text-sm uppercase tracking-wide text-gray-300 font-light">Researcher & Designer & Unity Developer</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- PROJECT OVERVIEW -->
+        <div class="max-w-7xl mx-auto mb-48 reveal">
+            <div class="grid md:grid-cols-12 gap-8">
+                <div class="md:col-span-12">
+                    <h2 class="mono text-blue-400 text-sm mb-6 uppercase tracking-widest">Project Overview</h2>
+                    <p class="text-2xl font-light text-gray-300 leading-relaxed max-w-5xl">
+                        Curiosity is a VR scenario being developed as part of my ongoing PhD research into emotion elicitation in virtual environments. I was awarded a Google PhD Fellowship in support of my doctoral research.
+
+The project explores how design patterns can elicit curiosity in VR. As the research is ongoing, this case study presents selected development materials and in-engine screenshots without disclosing the complete experience, specific hypotheses, or findings.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 02 // EXPERIENCE STRUCTURE -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <h2 class="mono text-blue-400 text-sm mb-12 uppercase tracking-widest">02. Experience Structure</h2>
+            
+            <div class="max-w-4xl space-y-6 mb-16">
+                <p class="text-2xl font-light text-gray-300 leading-relaxed">
+                    The experience is structured across three acts: Setup, Confrontation, and Resolution. In this experience, confrontation is expressed through the search for the lens.
+                </p>
+                <p class="text-gray-400 font-light leading-relaxed text-lg">
+                    Curiosity begins in Act I, develops through the rising action of Act II, and reaches its peak at the climax of Act III.
+                </p>
+            </div>
+
+            <!-- Narrative Arc Diagram (SVG based) -->
+            <div class="bg-[#111113] border border-[#222225] rounded-lg w-full p-4 md:p-8 flex items-center justify-center cursor-pointer" onclick="document.getElementById('lightbox-img').src=this.querySelector('svg').outerHTML">
+                <div class="w-full max-w-[1000px] relative" style="padding-top: 33.33%;"> 
+                    <svg viewBox="0 0 1000 333" class="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Marker for Arrows -->
+                            <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                                <polygon points="0 0, 6 3, 0 6" fill="#88888e" />
+                            </marker>
+                        </defs>
+
+                        <!-- Base Horizontal Line -->
+                        <line x1="20" y1="270" x2="980" y2="270" stroke="#333338" stroke-width="1" />
+
+                        <!-- Vertical Dashed Lines (Act Dividers) -->
+                        <line x1="260" y1="40" x2="260" y2="280" stroke="#44444c" stroke-width="1" stroke-dasharray="6 6" />
+                        <line x1="760" y1="40" x2="760" y2="280" stroke="#44444c" stroke-width="1" stroke-dasharray="6 6" />
+
+                        <!-- Act Labels -->
+                        <text x="140" y="310" fill="#88888e" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500" text-anchor="middle" letter-spacing="0.05em">ACT I — SETUP</text>
+                        <text x="510" y="310" fill="#88888e" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500" text-anchor="middle" letter-spacing="0.05em">ACT II — CONFRONTATION</text>
+                        <text x="870" y="310" fill="#88888e" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500" text-anchor="middle" letter-spacing="0.05em">ACT III — RESOLUTION</text>
+
+                        <!-- The Story Curve (S-Curve) -->
+                        <path d="M 40 265 C 196 265, 274 60, 820 60 C 870 60, 920 250, 960 250" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" />
+
+                        <!-- NODES -->
+                        <!-- Inciting Incident -->
+                        <g transform="translate(198, 203)">
+                            <circle cx="0" cy="0" r="4.5" fill="#111113" stroke="#60a5fa" stroke-width="2" />
+                            <line x1="0" y1="-45" x2="0" y2="-9" stroke="#88888e" stroke-width="1.2" marker-end="url(#arrowhead)" />
+                            <text x="0" y="-55" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500" text-anchor="middle">INCITING INCIDENT</text>
+                        </g>
+
+                        <!-- Rising Action -->
+                        <g transform="translate(508, 93)">
+                            <circle cx="0" cy="0" r="4.5" fill="#111113" stroke="#60a5fa" stroke-width="2" />
+                            <line x1="0" y1="-45" x2="0" y2="-9" stroke="#88888e" stroke-width="1.2" marker-end="url(#arrowhead)" />
+                            <text x="0" y="-55" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500" text-anchor="middle">RISING ACTION</text>
+                        </g>
+
+                        <!-- Climax -->
+                        <g transform="translate(820, 60)">
+                            <circle cx="0" cy="0" r="4.5" fill="#60a5fa" />
+                            <line x1="0" y1="-35" x2="0" y2="-9" stroke="#88888e" stroke-width="1.2" marker-end="url(#arrowhead)" />
+                            <text x="0" y="-45" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">CLIMAX</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- 03 // SPATIAL LAYOUTS -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <h2 class="mono text-blue-400 text-sm mb-12 uppercase tracking-widest">03. Spatial Layouts</h2>
+            
+            <div class="space-y-16">
+                <!-- Acts I & II Grid -->
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <!-- Act I Floor Map -->
+                    <div class="flex flex-col">
+                        <div class="img-box aspect-[4/3] bg-white border-none p-4">
+                            <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/floormap_ACTI.png" alt="Floor Map - Act I" loading="lazy">
+                        </div>
+                        <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Floor Map — Act I: Selected floor map for Act I.</div>
+                    </div>
+
+                    <!-- Act II Floor Map -->
+                    <div class="flex flex-col">
+                        <div class="img-box aspect-[4/3] bg-white border-none p-4">
+                            <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/floormap_ACTII.png" alt="Floor Map - Act II" loading="lazy">
+                        </div>
+                        <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Floor Map — Act II: Selected floor map for Act II.</div>
+                    </div>
+                </div>
+
+                <!-- Act III Grid (Path left, Layout right) -->
+                <div>
+                    <h3 class="mono text-xs text-zinc-400 uppercase tracking-widest mb-6">Act III — Spatial Layout & Path Progression</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-start">
+                        <!-- Act III Path Map (Left) -->
+                        <div class="flex flex-col">
+                            <div class="img-box aspect-[4/3] bg-white border-none p-4">
+                                <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/floormap_actIII_path.png" alt="Floor Map - Act III Path" loading="lazy">
+                            </div>
+                            <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Floor Map — Act III: Spatial movement & progression path.</div>
+                        </div>
+                        
+                        <!-- Act III Layout Map (Right) -->
+                        <div class="flex flex-col">
+                            <div class="img-box aspect-[4/3] bg-white border-none p-4">
+                                <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/floormap_ACTIII.png" alt="Floor Map - Act III Layout" loading="lazy">
+                            </div>
+                            <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Floor Map — Act III: Environment layout.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 04 // STORYBOARD -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <h2 class="mono text-blue-400 text-sm mb-6 uppercase tracking-widest">04. Storyboard</h2>
+            <div class="max-w-4xl mb-12">
+                <p class="text-2xl font-light text-gray-300 leading-relaxed mb-6">
+                    The storyboard shows how the experience unfolds across its three-act structure.
+                </p>
+                <p class="text-gray-400 font-light leading-relaxed text-lg">
+                    The storyboard was generated using Nano Banana Pro in Gemini.
+                </p>
+            </div>
+
+            <!-- Full Width Vertical Stack -->
+            <div class="flex flex-col space-y-16 w-full">
+                <!-- Act I -->
+                <div class="w-full flex flex-col">
+                    <div class="img-box bg-[#0d0d0d] border border-white/5 w-full !max-w-full">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/storyboard_actI.png" alt="Storyboard - Act I" class="!w-full !h-auto !object-contain block" loading="lazy">
+                    </div>
+                    <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Storyboard — Act I: Initial sequence and exploration.</div>
+                </div>
+
+                <!-- Act II -->
+                <div class="w-full flex flex-col">
+                    <div class="img-box bg-[#0d0d0d] border border-white/5 w-full !max-w-full">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/storyboard_actII.jpg" alt="Storyboard - Act II" class="!w-full !h-auto !object-contain block" loading="lazy">
+                    </div>
+                    <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Storyboard — Act II: The path and progression.</div>
+                </div>
+
+                <!-- Act III -->
+                <div class="w-full flex flex-col">
+                    <div class="img-box bg-[#0d0d0d] border border-white/5 w-full !max-w-full">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/storyboard_actIII.jpg" alt="Storyboard - Act III" class="!w-full !h-auto !object-contain block" loading="lazy">
+                    </div>
+                    <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Storyboard — Act III: The summit and resolution.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 05 // PROTOTYPE FOOTAGE -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <h2 class="mono text-blue-400 text-sm mb-6 uppercase tracking-widest">05. In-Engine Screenshots</h2>
+            <div class="max-w-4xl mb-12">
+                <p class="text-2xl font-light text-gray-300 leading-relaxed mb-6">
+                    The scenario is being developed as a Unity-based VR prototype.
+                </p>
+                <p class="text-gray-400 font-light leading-relaxed text-lg">
+                    The screenshots below presents selected in-engine moments without revealing the complete research experience.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Footage 3 -->
+                <div class="flex flex-col">
+                    <div class="img-box aspect-[16/9] bg-[#0d0d0d] border border-white/5">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actI_firefly_path.png" alt="Act I - Firefly Path" loading="lazy">
+                    </div>
+                    <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Act I: Firefly Path</div>
+                </div>
+
+                <!-- Footage 4 -->
+                <div class="flex flex-col">
+                    <div class="img-box aspect-[16/9] bg-[#0d0d0d] border border-white/5">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actI_jar_creatures.png" alt="Act I - Three Jar Insects" loading="lazy">
+                    </div>
+                    <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Act I: Jar Creatures</div>
+                </div>
+
+                <!-- Footage 5 -->
+                <div class="flex flex-col">
+                    <div class="img-box aspect-[16/9] bg-[#0d0d0d] border border-white/5">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actII_labyrinth_stairs.png" alt="Act II - Labyrinth Stairs" loading="lazy">
+                    </div>
+                    <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Act II: Labyrinth Stairs</div>
+                </div>
+
+                <!-- Footage 6 -->
+                <div class="flex flex-col">
+                    <div class="img-box aspect-[16/9] bg-[#0d0d0d] border border-white/5">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actII_summit_valley.png" alt="Act II - Summit Valley" loading="lazy">
+                    </div>
+                    <div class="mt-4 mono text-[10px] text-zinc-500 uppercase tracking-widest">Act II: Summit Valley</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 06 // CURRENT STATUS -->
+        <div class="max-w-7xl mx-auto mb-48 reveal section-divider">
+            <h2 class="mono text-blue-400 text-sm mb-6 uppercase tracking-widest">06. Current Status</h2>
+            <div class="max-w-4xl space-y-6">
+                <p class="text-2xl font-light text-gray-300 leading-relaxed">
+                    This project is ongoing. The case study will be expanded as the project progresses.
+                </p>
+                <p class="text-gray-400 font-light leading-relaxed text-lg">
+                    Full research findings and further documentation will be shared following publication.
+                </p>
+            </div>
+        </div>
+
+        <!-- BACK TO ARCHIVE FOOTER -->
+        <footer class="py-16 border-t border-white/10 max-w-7xl mx-auto reveal">
+            <button class="mono text-blue-400 hover:text-white transition-all bg-transparent border-none cursor-pointer uppercase tracking-widest text-xs flex items-center gap-2 group">
+                <span class="transform group-hover:-translate-x-1 transition-transform">←</span> Back to Archive
+            </button>
+        </footer>
+    </div>
+
+    <!-- MAIN FOOTER -->
+    <footer class="main-footer py-16 bg-zinc-950 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div class="flex flex-col gap-3">
+                <div class="mono font-bold text-xl tracking-tighter text-white uppercase">LIZA SIURINA</div>
+                <div class="footer-copyright uppercase">© 2026 PORTFOLIO. ALL RIGHTS RESERVED</div>
+            </div>
+            <div class="flex flex-wrap gap-6 md:gap-12">
+                <a href="https://github.com/lisasiurina" target="_blank" class="footer-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="footer-link">LinkedIn</a>
+                <a href="https://t.me/liza_uzi" target="_blank" class="footer-link">Telegram</a>
+                <a href="mailto:liza.siurina@gmail.com" class="footer-link text-white hover:text-blue-400">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl hidden flex-col items-center justify-center p-4 md:p-8 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-zinc-400 hover:text-white mono text-xs uppercase tracking-widest bg-zinc-900/80 border border-white/10 px-4 py-2 rounded flex items-center gap-2 transition-colors cursor-pointer z-10">
+            <span>Close</span> [ESC]
+        </button>
+        <div class="max-w-full max-h-full flex flex-col items-center justify-center">
+            <img id="lightbox-img" src="" alt="Enlarged view" class="max-h-[85vh] max-w-[92vw] object-contain rounded border border-white/10 shadow-2xl">
+            <p id="lightbox-caption" class="mono text-xs text-zinc-400 uppercase tracking-widest mt-4 text-center max-w-2xl px-4"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+            
+            const header = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-6');
+                } else {
+                    header.classList.add('py-6');
+                    header.classList.remove('py-4');
+                }
+            });
+
+            // Lightbox Modal Logic
+            const modal = document.getElementById('lightbox-modal');
+            const modalImg = document.getElementById('lightbox-img');
+            const modalCaption = document.getElementById('lightbox-caption');
+            const closeBtn = document.getElementById('lightbox-close');
+
+            const openLightbox = (src, captionText) => {
+                // If it's an SVG string, handle it differently, otherwise treat as image source
+                if (src.startsWith('<svg')) {
+                    // Create a blob URL for SVG
+                    const blob = new Blob([src], {type: 'image/svg+xml'});
+                    const url = URL.createObjectURL(blob);
+                    modalImg.src = url;
+                } else {
+                    modalImg.src = src;
+                }
+                
+                modalCaption.textContent = captionText || '';
+                modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+                modal.classList.add('flex', 'opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeLightbox = () => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    modalImg.src = '';
+                }, 300);
+                document.body.style.overflow = '';
+            };
+
+            document.querySelectorAll('.img-box, .hero-img-container').forEach(container => {
+                container.addEventListener('click', () => {
+                    const img = container.querySelector('img');
+                    if (img) {
+                        const captionEl = container.nextElementSibling;
+                        const captionText = captionEl ? captionEl.textContent : img.alt;
+                        openLightbox(img.src, captionText);
+                    }
+                });
+            });
+
+            closeBtn?.addEventListener('click', closeLightbox);
+            modal?.addEventListener('click', (e) => {
+                if (e.target === modal || e.target.id === 'lightbox-img') {
+                    if (e.target === modal) closeLightbox();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        });
+    </script>
+</body>
+</html>
