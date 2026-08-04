@@ -167,6 +167,7 @@
             background: #0a0a0a;
             border-radius: 50%;
             border: 1px solid rgba(255, 255, 255, 0.15);
+            margin: 0 auto;
         }
 
         .hero-img-cropped {
@@ -335,34 +336,34 @@
     </div>
 
     <!-- НАВИГАЦИЯ -->
-    <header id="main-nav" class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 py-8 px-8 md:px-16 flex justify-between items-center">
-        <button onclick="showPage('home')" class="mono font-bold text-2xl tracking-tighter hover:text-blue-500 transition-colors bg-transparent border-none text-white cursor-pointer">LIZA SIURINA</button>
-        <nav class="flex gap-8 md:gap-14">
+    <header id="main-nav" class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 py-4 px-4 md:py-8 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+        <button onclick="showPage('home')" class="mono font-bold text-xl md:text-2xl tracking-tighter hover:text-blue-500 transition-colors bg-transparent border-none text-white cursor-pointer">LIZA SIURINA</button>
+        <nav class="flex gap-4 md:gap-14 overflow-x-auto w-full md:w-auto justify-center pb-2 md:pb-0 hide-scrollbar">
             <!-- Заменил Projects на Portfolio и добавил скролл -->
-            <button onclick="scrollToPortfolio()" id="nav-home" class="nav-link active mono">Portfolio</button>
-            <button onclick="showPage('story')" id="nav-story" class="nav-link mono">My Story</button>
-            <button onclick="showPage('contacts')" id="nav-contacts" class="nav-link mono">Contacts</button>
+            <button onclick="scrollToPortfolio()" id="nav-home" class="nav-link active mono whitespace-nowrap">Portfolio</button>
+            <button onclick="showPage('story')" id="nav-story" class="nav-link mono whitespace-nowrap">My Story</button>
+            <button onclick="showPage('contacts')" id="nav-contacts" class="nav-link mono whitespace-nowrap">Contacts</button>
         </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto">
+    <main class="max-w-7xl mx-auto pt-32 md:pt-48">
 
         <!-- ГЛАВНАЯ СТРАНИЦА -->
-        <div id="page-home" class="page-content active pt-48 pb-20 px-8 md:px-16">
-            <section class="mb-32 max-w-4xl">
-                <h1 class="text-7xl md:text-[100px] font-black tracking-tight leading-[0.9] mb-8">
+        <div id="page-home" class="page-content active pb-20 px-6 md:px-16">
+            <section class="mb-24 md:mb-32 max-w-4xl text-center md:text-left">
+                <h1 class="text-5xl md:text-[100px] font-black tracking-tight leading-[1] mb-6 md:mb-8 mt-8 md:mt-0">
                     Liza Siurina
                 </h1>
-                <div class="text-2xl md:text-3xl text-gray-400 font-light mb-2">UX Researcher & Interaction Designer</div>
-                <div class="text-blue-500 text-lg md:text-xl font-medium mb-12">Google PhD Fellow</div>
+                <div class="text-xl md:text-3xl text-gray-400 font-light mb-2">UX Researcher & Interaction Designer</div>
+                <div class="text-blue-500 text-base md:text-xl font-medium mb-10 md:mb-12">Google PhD Fellow</div>
                 
-                <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                    <div class="hero-quote max-w-xl">
-                        <p class="text-2xl md:text-3xl text-gray-400 font-light leading-snug">
+                <div class="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-12">
+                    <div class="hero-quote max-w-xl text-left border-l-2 md:border-l-2 border-l-blue-500 pl-4 md:pl-8 border-t-0 mt-0">
+                        <p class="text-xl md:text-3xl text-gray-400 font-light leading-snug">
                             Hi, I’m Liza — I design experiences that help people understand data and interact with complex systems.
                         </p>
                     </div>
-                    <div class="w-32 md:w-40 shrink-0">
+                    <div class="w-48 md:w-40 shrink-0 mx-auto md:mx-0">
                         <div class="relative group hero-img-container shadow-2xl">
                             <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/IMG_1686.jpg" alt="[Портрет Лизы Сиуриной]" class="relative hero-img-cropped" onerror="this.src='https://via.placeholder.com/600x800/111/fff?text=LIZA'">
                         </div>
@@ -371,7 +372,7 @@
             </section>
 
             <!-- РАЗДЕЛ: SELECTED WORK -->
-            <div id="selected-work-section" class="section-label reveal">
+            <div id="selected-work-section" class="section-label reveal justify-center md:justify-start">
                 <div class="flex items-center gap-3">
                     <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                     <span class="mono section-title-bright uppercase">Selected Work</span>
@@ -390,9 +391,9 @@
                              onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=PATH+OF+THE+BOW'">
                     </div>
                     <div class="project-info-side">
-                        <div class="mono text-blue-400 mb-4">Interaction System Design</div>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">Path of the Bow</h3>
-                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-8">
+                        <div class="mono text-blue-400 mb-2 md:mb-4 text-xs md:text-[10px]">Interaction System Design</div>
+                        <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 uppercase tracking-tight">Path of the Bow</h3>
+                        <p class="text-gray-300 md:text-gray-200 text-base md:text-lg font-light leading-relaxed mb-6 md:mb-8">
                             A VR interaction system for realistic multi-step bow assembly and shooting, designed through environmental cues, object feedback, and embodied interaction.
                         </p>
                         <div class="flex flex-wrap gap-3">
@@ -409,9 +410,9 @@
                         <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actI_jar_creatures.png" alt="[Preview Curiosity VR]" class="project-img img-gs" style="transform: scale(1.1);" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=CURIOSITY+VR'">
                     </div>
                     <div class="project-info-side">
-                        <div class="mono text-blue-400 mb-4">EMOTION ELICITATION &middot; INTERACTION DESIGN</div>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">Curiosity VR</h3>
-                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-8">
+                        <div class="mono text-blue-400 mb-2 md:mb-4 text-xs md:text-[10px]">EMOTION ELICITATION &middot; INTERACTION DESIGN</div>
+                        <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 uppercase tracking-tight">Curiosity VR</h3>
+                        <p class="text-gray-300 md:text-gray-200 text-base md:text-lg font-light leading-relaxed mb-6 md:mb-8">
                             A PhD research project exploring how sensory, narrative, and interaction design patterns can elicit curiosity in VR.
                         </p>
                         <div class="flex flex-wrap gap-3">
@@ -426,9 +427,9 @@
                         <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/rapncars.jpg" alt="[Превью Rap & Lyrics]" class="project-img img-gs" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=RAP+PROJECT'">
                     </div>
                     <div class="project-info-side">
-                        <div class="mono text-blue-400 mb-4">Computational Analysis</div>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">Rap & Lyrics</h3>
-                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-8">
+                        <div class="mono text-blue-400 mb-2 md:mb-4 text-xs md:text-[10px]">Computational Analysis</div>
+                        <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 uppercase tracking-tight">Rap & Lyrics</h3>
+                        <p class="text-gray-300 md:text-gray-200 text-base md:text-lg font-light leading-relaxed mb-6 md:mb-8">
                             Quantitative analysis of song lyrics, identifying linguistic patterns and cultural sentiments using NLP techniques.
                         </p>
                         <div class="flex flex-wrap gap-3">
@@ -457,18 +458,18 @@
         </div>
 
         <!-- СТРАНИЦА: STORY -->
-        <div id="page-story" class="page-content pt-48 pb-20 px-8 md:px-16">
-            <h2 class="text-6xl md:text-8xl font-black mb-16 uppercase tracking-tighter">The Story</h2>
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start mb-32">
-                <div class="md:col-span-5 story-img-wrapper reveal">
+        <div id="page-story" class="page-content pb-20 px-6 md:px-16 text-center md:text-left">
+            <h2 class="text-5xl md:text-8xl font-black mb-10 md:mb-16 uppercase tracking-tighter mt-8 md:mt-0">The Story</h2>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start mb-24 md:mb-32">
+                <div class="md:col-span-5 story-img-wrapper reveal mx-auto w-full max-w-md md:max-w-none">
                     <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/vr%20pic.jpg" alt="[Лиза в VR]" class="story-img" onerror="this.src='https://via.placeholder.com/600x800/111/fff?text=RESEARCH+PIC'">
                 </div>
-                <div class="md:col-span-7 space-y-12">
-                    <div class="space-y-6 text-xl md:text-2xl text-gray-200 font-light leading-relaxed reveal">
+                <div class="md:col-span-7 space-y-8 md:space-y-12">
+                    <div class="space-y-6 text-lg md:text-2xl text-gray-300 md:text-gray-200 font-light leading-relaxed reveal text-left">
                         <p>My journey began at the intersection of Psychology and Computer Engineering. I focus on how humans perceive digital spaces, specifically in XR.</p>
                         <p>Currently researching how tactile feedback and spatial sound influence immersion levels.</p>
                     </div>
-                    <div class="reveal">
+                    <div class="reveal text-center md:text-left">
                         <a href="https://raw.githubusercontent.com/lisasiurina/portfolio/main/CV%20Liza%20Siurina_eng.pdf" target="_blank" class="cv-button group">
                             <span>Download CV in ENG</span>
                             <span class="opacity-70 group-hover:translate-x-1 transition-transform">→</span>
@@ -479,37 +480,50 @@
         </div>
 
         <!-- СТРАНИЦА: CONTACTS -->
-        <div id="page-contacts" class="page-content pt-48 pb-20 px-8 md:px-16">
-            <h2 class="text-6xl md:text-8xl font-black mb-16 uppercase tracking-tighter">Let's <br> Connect</h2>
-            <div class="mt-20 space-y-8 md:space-y-4">
-                <div class="reveal">
-                    <span class="mono text-blue-400 block mb-2">Primary channel</span>
-                    <a href="mailto:liza.siurina@gmail.com" class="contact-link">liza.siurina@gmail.com</a>
+        <div id="page-contacts" class="page-content pb-20 px-6 md:px-16 text-center md:text-left">
+            <h2 class="text-5xl md:text-8xl font-black mb-10 md:mb-16 uppercase tracking-tighter mt-8 md:mt-0">Let's <br class="hidden md:block"> Connect</h2>
+            <div class="mt-12 md:mt-20 space-y-10 md:space-y-8 flex flex-col items-center md:items-start">
+                <div class="reveal text-center md:text-left w-full">
+                    <span class="mono text-blue-400 block mb-3 md:mb-2 text-xs md:text-[10px]">Email</span>
+                    <a href="mailto:liza.siurina@gmail.com" class="contact-link text-3xl md:text-[clamp(2rem,5vw,4rem)] break-all">lisa.siurina@gmail.com</a>
                 </div>
-                <div class="flex flex-wrap gap-12 pt-12 mono reveal">
-                    <a href="https://github.com/lisasiurina" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline">GitHub</a>
-                    <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline">LinkedIn</a>
-                    <a href="https://t.me/arctic_shade" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline">Telegram</a>
+                <div class="reveal text-center md:text-left w-full">
+                    <span class="mono text-blue-400 block mb-3 md:mb-2 text-xs md:text-[10px]">Telegram</span>
+                    <a href="https://t.me/arctic_shade" target="_blank" class="contact-link text-3xl md:text-[clamp(2rem,5vw,4rem)] break-all">@arctic_shade</a>
+                </div>
+                <div class="flex flex-col md:flex-row flex-wrap gap-8 md:gap-12 pt-4 md:pt-8 mono reveal justify-center md:justify-start w-full">
+                    <a href="https://github.com/lisasiurina" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline text-sm md:text-[10px]">GitHub</a>
+                    <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline text-sm md:text-[10px]">LinkedIn</a>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <footer class="main-footer">
-        <div class="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-            <div class="flex flex-col gap-2">
+    <footer class="main-footer px-6 md:px-0">
+        <div class="max-w-7xl mx-auto px-0 md:px-16 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-10 md:gap-12">
+            <div class="flex flex-col gap-3 md:gap-2">
                 <div class="mono font-bold text-xl tracking-tighter text-white">LIZA SIURINA</div>
                 <div class="footer-copyright">© 2026 PORTFOLIO // ALL RIGHTS RESERVED</div>
             </div>
-            <div class="flex flex-wrap gap-8 md:gap-12">
+            <div class="flex flex-col md:flex-row flex-wrap gap-6 md:gap-12 items-center">
                 <a href="https://github.com/lisasiurina" target="_blank" class="footer-link">GitHub</a>
                 <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="footer-link">LinkedIn</a>
-                <a href="https://t.me/liza_uzi" target="_blank" class="footer-link">Telegram</a>
+                <a href="https://t.me/arctic_shade" target="_blank" class="footer-link">Telegram</a>
                 <a href="mailto:liza.siurina@gmail.com" class="footer-link">Email</a>
             </div>
         </div>
     </footer>
+    <style>
+        /* Стилизация скроллбара для мобильного меню */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
