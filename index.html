@@ -103,6 +103,7 @@
             background: #0e0e0e;
             border-right: 1px solid var(--border);
             position: relative; /* Добавлено для позиционирования картинки */
+            overflow: hidden; /* Добавлено для жесткой обрезки увеличенной картинки */
         }
 
         .project-img {
@@ -117,10 +118,14 @@
         }
 
         .img-gs { filter: grayscale(1); }
-        .project-row:hover .img-gs { filter: grayscale(0); transform: scale(1.05); }
+        .project-row:hover .img-gs { filter: grayscale(0); }
+
+        /* Специальный класс для увеличения Curiosity */
+        .zoom-curiosity { transform: scale(1.15); transform-origin: center center; }
+        .project-row:hover .zoom-curiosity { transform: scale(1.25); }
 
         .project-info-side { 
-            width: 55%;
+            padding: 2rem; 
             padding: 3rem;
             display: flex; 
             flex-direction: column; 
@@ -429,7 +434,7 @@
                 <!-- ПРОЕКТ: EMOTION ELICITATION RESEARCH -->
                 <a href="./other_pages/curiosity.html" target="_blank" class="project-row no-underline text-inherit">
                     <div class="project-img-side">
-                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actI_jar_creatures.png" alt="[Preview Curiosity VR]" class="project-img img-gs" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=CURIOSITY+VR'">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actI_jar_creatures.png" alt="[Preview Curiosity VR]" class="project-img img-gs zoom-curiosity" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=CURIOSITY+VR'">
                     </div>
                     <div class="project-info-side">
                         <div class="mono text-blue-400 mb-3 text-[10px]">EMOTION ELICITATION &middot; INTERACTION DESIGN</div>
@@ -513,9 +518,9 @@
                     <span class="mono text-blue-400 block mb-3 md:mb-2 text-xs md:text-[10px]">Telegram</span>
                     <a href="https://t.me/arctic_shade" target="_blank" class="contact-link text-3xl md:text-[clamp(2rem,5vw,4rem)] break-all">@arctic_shade</a>
                 </div>
-                <div class="flex flex-col md:flex-row flex-wrap gap-8 md:gap-12 pt-4 md:pt-8 mono reveal justify-center md:justify-start w-full">
-                    <a href="https://github.com/lisasiurina" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline text-sm md:text-[10px]">GitHub</a>
-                    <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="hover:text-blue-400 transition-colors text-white no-underline text-sm md:text-[10px]">LinkedIn</a>
+                <div class="reveal text-center md:text-left w-full">
+                    <span class="mono text-blue-400 block mb-3 md:mb-2 text-xs md:text-[10px]">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/lizasiurina/" target="_blank" class="contact-link text-3xl md:text-[clamp(2rem,5vw,4rem)] break-all">/in/lizasiurina</a>
                 </div>
             </div>
         </div>
