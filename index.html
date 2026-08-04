@@ -81,16 +81,16 @@
 
         /* --- КАРТОЧКИ ПРОЕКТОВ --- */
         .project-row {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: row;
             background: var(--card-bg);
             border: 1px solid var(--border);
             cursor: pointer;
             overflow: hidden;
             transition: border-color 0.4s ease, transform 0.3s ease;
+            align-items: stretch;
+            min-height: 320px;
         }
-
-        @media (min-width: 768px) { .project-row { grid-template-columns: 1fr 1.2fr; } }
 
         .project-row:hover { 
             border-color: var(--accent);
@@ -98,28 +98,52 @@
         }
 
         .project-img-side { 
-            width: 100%; 
-            height: 100%; 
-            min-height: 380px; 
-            overflow: hidden; 
-            background: #0e0e0e; 
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 45%; 
+            flex-shrink: 0;
+            background: #0e0e0e;
+            border-right: 1px solid var(--border);
+            position: relative; /* Добавлено для позиционирования картинки */
         }
 
         .project-img {
+            position: absolute; /* Картинка теперь жестко фиксируется в левом блоке */
+            top: 0;
+            left: 0;
             width: 100%; 
             height: 100%; 
             object-fit: cover;
+            display: block;
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .img-gs { filter: grayscale(1); }
-        .project-row:hover .img-gs { filter: grayscale(0); }
+        .project-row:hover .img-gs { filter: grayscale(0); transform: scale(1.05); }
 
-        .project-info-side { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+        .project-info-side { 
+            width: 55%;
+            padding: 3rem;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+        }
+        
+        /* Медиа-запрос для мобильных устройств: возвращаем карточки в колонку */
+        @media (max-width: 768px) {
+            .project-row {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .project-img-side {
+                width: 100%;
+                height: 250px;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            .project-info-side {
+                width: 100%;
+                padding: 2rem;
+            }
+        }
 
         /* --- ПЕРЕХОДЫ МЕЖДУ СТРАНИЦАМИ --- */
         .page-content {
@@ -378,23 +402,23 @@
                 <div class="line"></div>
             </div>
 
-            <div class="project-list space-y-12">
+            <div class="project-list flex flex-col gap-6 md:gap-8"> 
 
                  <!-- ПРОЕКТ: PATH OF THE BOW -->
-                <a href="./other_pages/path_of_the_bow.html" target="_blank" class="project-row block no-underline text-inherit">
+                <a href="./other_pages/path_of_the_bow.html" target="_blank" class="project-row no-underline text-inherit">
                     <div class="project-img-side">
                         <img src="https://raw.githubusercontent.com/lisasiurina/bow/main/cover_pathofthebow.png"
-                           alt="[Preview Path of the Bow]"
-                           class="project-img img-gs"
-                           onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=PATH+OF+THE+BOW'">
+                            alt="[Preview Path of the Bow]"
+                            class="project-img img-gs"
+                            onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=PATH+OF+THE+BOW'">
                     </div>
                     <div class="project-info-side">
-                        <div class="mono text-blue-400 mb-2 md:mb-4 text-xs md:text-[10px]">Interaction System Design</div>
-                        <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 uppercase tracking-tight">Path of the Bow</h3>
-                        <p class="text-gray-300 md:text-gray-200 text-base md:text-lg font-light leading-relaxed mb-6 md:mb-8">
+                        <div class="mono text-blue-400 mb-3 text-[10px]">Interaction System Design</div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 uppercase tracking-tight">Path of the Bow</h3>
+                        <p class="text-gray-300 md:text-gray-200 text-sm md:text-base font-light leading-relaxed mb-6 flex-grow">
                             A VR interaction system for realistic multi-step bow assembly and shooting, designed through environmental cues, object feedback, and embodied interaction.
                         </p>
-                        <div class="flex flex-wrap gap-3">
+                        <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="tech-tag">VR</span>
                             <span class="tech-tag">UNITY</span>
                             <span class="tech-tag">INTERACTION DESIGN</span>
@@ -403,34 +427,34 @@
                 </a>
 
                 <!-- ПРОЕКТ: EMOTION ELICITATION RESEARCH -->
-                <a href="./other_pages/curiosity.html" target="_blank" class="project-row block no-underline text-inherit">
+                <a href="./other_pages/curiosity.html" target="_blank" class="project-row no-underline text-inherit">
                     <div class="project-img-side">
-                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actI_jar_creatures.png" alt="[Preview Curiosity VR]" class="project-img img-gs" style="transform: scale(1.1);" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=CURIOSITY+VR'">
+                        <img src="https://raw.githubusercontent.com/lisasiurina/curiosity/main/image/scene_actI_jar_creatures.png" alt="[Preview Curiosity VR]" class="project-img img-gs" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=CURIOSITY+VR'">
                     </div>
                     <div class="project-info-side">
-                        <div class="mono text-blue-400 mb-2 md:mb-4 text-xs md:text-[10px]">EMOTION ELICITATION &middot; INTERACTION DESIGN</div>
-                        <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 uppercase tracking-tight">Curiosity VR</h3>
-                        <p class="text-gray-300 md:text-gray-200 text-base md:text-lg font-light leading-relaxed mb-6 md:mb-8">
+                        <div class="mono text-blue-400 mb-3 text-[10px]">EMOTION ELICITATION &middot; INTERACTION DESIGN</div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 uppercase tracking-tight">Curiosity VR</h3>
+                        <p class="text-gray-300 md:text-gray-200 text-sm md:text-base font-light leading-relaxed mb-6 flex-grow">
                             A PhD research project exploring how sensory, narrative, and interaction design patterns can elicit curiosity in VR.
                         </p>
-                        <div class="flex flex-wrap gap-3">
+                        <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="tech-tag">VR</span><span class="tech-tag">UNITY</span><span class="tech-tag">PHD RESEARCH</span>
                         </div>
                     </div>
                 </a>
 
                 <!-- ПРОЕКТ: RAP & LYRICS -->
-                <a href="https://lisasiurina.github.io/rapandlyrics/" target="_blank" class="project-row block no-underline text-inherit">
+                <a href="https://lisasiurina.github.io/rapandlyrics/" target="_blank" class="project-row no-underline text-inherit">
                     <div class="project-img-side">
                         <img src="https://raw.githubusercontent.com/lisasiurina/portfolio/main/img/rapncars.jpg" alt="[Превью Rap & Lyrics]" class="project-img img-gs" onerror="this.src='https://via.placeholder.com/800x400/111/fff?text=RAP+PROJECT'">
                     </div>
                     <div class="project-info-side">
-                        <div class="mono text-blue-400 mb-2 md:mb-4 text-xs md:text-[10px]">Computational Analysis</div>
-                        <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 uppercase tracking-tight">Computational Lyric Analysis"</h3>
-                        <p class="text-gray-300 md:text-gray-200 text-base md:text-lg font-light leading-relaxed mb-6 md:mb-8">
+                        <div class="mono text-blue-400 mb-3 text-[10px]">Computational Analysis</div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 uppercase tracking-tight">Computational Lyric Analysis</h3>
+                        <p class="text-gray-300 md:text-gray-200 text-sm md:text-base font-light leading-relaxed mb-6 flex-grow">
                             Quantitative analysis of song lyrics, identifying linguistic patterns and cultural sentiments using NLP techniques.
                         </p>
-                        <div class="flex flex-wrap gap-3">
+                        <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="tech-tag">PYTHON</span><span class="tech-tag">NLP</span><span class="tech-tag">DATA VIZ</span>
                         </div>
                     </div>
@@ -558,7 +582,6 @@
             }, 50);
 
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            // Подсветка кнопки (для 'home' кнопка теперь называется по-другому, но ID тот же)
             const navBtn = document.getElementById('nav-' + (pageId === 'case-webcom' ? 'home' : pageId));
             if (navBtn) navBtn.classList.add('active');
             
