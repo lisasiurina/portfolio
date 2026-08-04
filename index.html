@@ -598,6 +598,15 @@
 
         window.addEventListener('load', () => {
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            
+            const hash = window.location.hash.replace('#', '');
+            if (hash === 'story') {
+                showPage('story');
+            } else if (hash === 'contacts') {
+                showPage('contacts');
+            } else if (hash === 'home') {
+                showPage('home');
+            }
         });
     </script>
 </body>
